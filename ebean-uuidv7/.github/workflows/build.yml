@@ -1,0 +1,41 @@
+
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: main
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        java_version: [11]
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ matrix.java_version }}
+        distribution: 'zulu'
+    - name: Maven cache
+      uses: actions/cache@v3
+      env:
+        cache-name: maven-cache
+      with:
+        path:
+          ~/.m2
+        key: build-${{ env.cache-name }}
+    - name: Maven version
+      run: mvn --version
+    - name: Build with Maven
+      run: mvn clean test
+
