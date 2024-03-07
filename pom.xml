@@ -11,7 +11,7 @@
 
   <groupId>io.ebean</groupId>
   <artifactId>ebean-uuidv7</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.1</version>
 
   <url>https://ebean.io/</url>
   <scm>

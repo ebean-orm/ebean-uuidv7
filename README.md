@@ -57,6 +57,6 @@ UUID uuid = uuidV7.next();
 <dependency>
   <groupId>io.ebean</groupId>
   <artifactId>ebean-uuidv7</artifactId>
-  <version>1.0</version>
+  <version>0.1</version>
 </dependency>
 ```
